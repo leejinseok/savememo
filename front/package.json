@@ -1,0 +1,13 @@
+{
+  "name": "front",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.17.2",
+    "ejs": "^2.5.7",
+    "express": "^4.15.4",
+    "materialize-css": "^0.100.1",
+    "path": "^0.12.7"
+  }
+}
