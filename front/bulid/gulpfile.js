@@ -52,6 +52,7 @@ gulp.task('js:app.angular', () => {
 });
 
 gulp.task('dev', () => {
+    gulp.start('exec');
     // scss build
     gulp.watch(config.path.scss.app.src, ['sass:app']);
     gulp.watch(config.path.scss.pages.src, ['sass:pages']);
@@ -59,6 +60,13 @@ gulp.task('dev', () => {
     gulp.watch(config.path.js.app.default.src, ['js:app.default']);
     gulp.watch(config.path.js.app.angular.src, ['js:app.angular'])
 });
+
+gulp.task('exec', () => {
+    gulp.start('sass:app');
+    gulp.start('sass:pages');
+    gulp.start('js:app.default');
+    gulp.start('js:app.angular');
+})
 
 /**
  * swallowError - 에러 핸들링 (https://stackoverflow.com/questions/23971388/prevent-errors-from-breaking-crashing-gulp-watch)

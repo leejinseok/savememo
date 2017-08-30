@@ -1,5 +1,6 @@
 <% include ./partials/header %>
 <div ng-controller="WelcomeCtrl" id="pages-welcome" class='container'>
+    <h2>Save me!</h2>
     <form name="login" ng-submit="submit()">
         <input type="text" ng-model="email" placeholder="이메일을 입력하시오">
         <input type="password" ng-model="pwd" placeholder="비밀번호를 입력하시오.">
@@ -8,7 +9,4 @@
         </button>
     </form>
 </div>
-<script type="text/javascript">
-
-</script>
 <% include ./partials/footer %>

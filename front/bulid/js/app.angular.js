@@ -1,15 +1,14 @@
 var app = angular.module('app', []);
 app.controller('WelcomeCtrl', function ($scope, $http) {
     $scope.submit = function () {
-        console.log(this.email);
-        console.log(this.pwd);
-    }
+        var email = this.email;
+        var pwd = this.pwd;
+        if (validCheckEmail(email)) {
+            window.location.href = '/main';
+        }
+    };
+});
 
-    $scope.hi = function () {
-        console.log('hi');
-    }
-
-    function validCheckEmail () {
-
-    }
+app.controller('MainCtrl', function ($scope) {
+    
 });
