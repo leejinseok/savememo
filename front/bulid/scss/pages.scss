@@ -5,3 +5,14 @@
         width: 700px !important;
     }
 }
+
+#pages-main {
+    header {
+        display: flex;
+        height: 50px;
+        align-items: center;
+        justify-content: center;
+        background-color: $oc-indigo-6;
+        color: white;
+    }
+}

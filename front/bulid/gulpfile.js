@@ -29,7 +29,8 @@ gulp.task('sass:pages', () => {
             path.basename += ".min";
             path.extname = ".css"
         }))
-        .pipe(gulp.dest(config.dest.css));
+        .pipe(gulp.dest(config.dest.css))
+        gulp.start('sass:app');
 });
 
 gulp.task('js:app.default', () => {
