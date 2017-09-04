@@ -20,19 +20,6 @@ gulp.task('sass:app', () => {
         .pipe(gulp.dest(config.dest.css));
 });
 
-gulp.task('sass:pages', () => {
-    gulp.src(config.path.scss.pages.src)
-        .pipe(sourcemaps.init())
-        .pipe(sass({outputStyle: 'compressed'}).on('error', sass.logError))
-        .pipe(sourcemaps.write())
-        .pipe(rename(function (path) {
-            path.basename += ".min";
-            path.extname = ".css"
-        }))
-        .pipe(gulp.dest(config.dest.css))
-        gulp.start('sass:app');
-});
-
 gulp.task('js:app.default', () => {
     gulp.src(config.path.js.app.default.src)
         .pipe(minify({
@@ -55,8 +42,8 @@ gulp.task('js:app.angular', () => {
 gulp.task('dev', () => {
     gulp.start('exec');
     // scss build
-    gulp.watch(config.path.scss.app.src, ['sass:app']);
-    gulp.watch(config.path.scss.pages.src, ['sass:pages']);
+    gulp.watch(config.path.scss.whole.src, ['sass:app']);
+
     // js build
     gulp.watch(config.path.js.app.default.src, ['js:app.default']);
     gulp.watch(config.path.js.app.angular.src, ['js:app.angular'])
@@ -64,7 +51,6 @@ gulp.task('dev', () => {
 
 gulp.task('exec', () => {
     gulp.start('sass:app');
-    gulp.start('sass:pages');
     gulp.start('js:app.default');
     gulp.start('js:app.angular');
 })

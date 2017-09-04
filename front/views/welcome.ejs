@@ -1,12 +1,15 @@
 <% include ./partials/header %>
+<% include ./partials/nav %>
+
 <div ng-controller="WelcomeCtrl" id="pages-welcome" class='container'>
-    <h2>Save me!</h2>
-    <form name="login" ng-submit="submit()">
-        <input type="text" ng-model="email" placeholder="이메일을 입력하시오">
-        <input type="password" ng-model="pwd" placeholder="비밀번호를 입력하시오.">
-        <button class="waves-effect waves-light btn" type='submit'>
-            로그인
-        </button>
-    </form>
+    <div class="wrapper-tab">
+        <div class='tab {{ selected === "list" ? "active": ""}}' ng-click='changeTab("list")'>리스트</div>
+        <div class='tab {{ selected === "favorite" ? "active": ""}}' ng-click='changeTab("favorite")'>즐겨찾기</div>
+        <div class="bar {{ selected === 'list' ? 'left' : 'right'}}"></div>
+    </div>
+
+    <div class="wrapper-container">
+        
+    </div>
 </div>
 <% include ./partials/footer %>

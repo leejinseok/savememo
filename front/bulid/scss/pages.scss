@@ -1,8 +1,44 @@
-@import '../../bower_components/open-color/open-color.scss';
 
 #pages-welcome {
     &.container {
-        width: 700px !important;
+        margin: 0 auto;
+        .wrapper-tab {
+            width: 100%;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            .tab {
+                display: flex;
+                flex:1;
+                align-items: center;
+                justify-content: center;
+                height: 3rem;
+                cursor: pointer;
+                color: $oc-gray-6;
+                &:hover {
+                    background-color: $oc-gray-1;
+                    color: $oc-gray-9;
+                }
+                &.active {
+                    color: $oc-gray-9;
+                }
+            }
+
+            .bar {
+                position: absolute;
+                width: 50%;
+                height: 3px;
+                bottom: 0px;
+                left: 0px;
+                background-color: $oc-pink-6;
+                transition: all .3s ease-in-out;
+                &.right {
+                    transform: translateX(100%);
+                }
+            }
+        }
     }
 }
 
