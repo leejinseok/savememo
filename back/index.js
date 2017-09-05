@@ -4,7 +4,7 @@ var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var api = require('./api');
 
-mongoose.connect("mongodb://localhost/savememo");
+mongoose.connect("mongodb://dooly:aormfl123@ds119064.mlab.com:19064/savememo");
 
 var app = express();
 app.use(bodyParser.json());

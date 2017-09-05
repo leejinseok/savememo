@@ -1,9 +1,14 @@
 <% include ../partials/header %>
-<div ng-controller="MainCtrl" id="pages-main">
-    <header>
-        나의 메모
-    </header>
-    <div class="container">
+<% include ../partials/nav %>
+
+<div ng-controller="MainCtrl" id="pages-main" class='container'>
+    <div class="wrapper-tab">
+        <div class='tab {{ selected === "list" ? "active": ""}}' ng-click='changeTab("list")'>리스트</div>
+        <div class='tab {{ selected === "favorite" ? "active": ""}}' ng-click='changeTab("favorite")'>즐겨찾기</div>
+        <div class="bar {{ selected === 'list' ? 'left' : 'right'}}"></div>
+    </div>
+
+    <div class="wrapper-container">
 
     </div>
 </div>
