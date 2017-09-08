@@ -9,25 +9,38 @@ app.controller('WelcomeCtrl', function ($scope, $http, $httpParamSerializer) {
         var email = this.email;
         var pwd = this.pwd;
         if (validCheckEmail(email)) {
-            twinCkEmail(email);
-            // window.location.href = '/main';
+            $http({
+                method: 'POST' ,
+                url: 'http://localhost:3000/api/v1.0/auth/login/local',
+                data: $httpParamSerializer({email: email, pwd: pwd}),
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+                }
+            }).then(function(response) {
+                console.log(response.data);
+            }).finally(function() {
+                console.log('Complete');
+            });
         }
     };
 
-    function twinCkEmail (email) {
-        $http({
-            method: 'POST' ,
-            url: 'http://localhost:3000/api/v1.0/auth/twinck/email',
-            data: $httpParamSerializer({email: email}),
-            headers: {
-                'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
-            }
-        }).then(function(response) {
-            console.log(response.data);
-        }).finally(function() {
-            console.log('Complete');
-        });
-    }
+});
+
+app.controller('SignupCtrl', function ($scope, $http, $httpParamSerializer) {
+    // function twinCkEmail (email) {
+    //     $http({
+    //         method: 'POST' ,
+    //         url: 'http://localhost:3000/api/v1.0/auth/twinck/email',
+    //         data: $httpParamSerializer({email: email}),
+    //         headers: {
+    //             'Content-Type': 'application/x-www-form-urlencoded; charset=UTF-8'
+    //         }
+    //     }).then(function(response) {
+    //         console.log(response.data);
+    //     }).finally(function() {
+    //         console.log('Complete');
+    //     });
+    // }
 });
 
 app.controller('MainCtrl', function ($scope) {
